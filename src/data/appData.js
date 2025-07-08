@@ -1,0 +1,256 @@
+export const appData = {
+  "Mise en Place": {
+    Fryers: {
+      Tools: [
+        {
+          id: "T001",
+          name: "Espátula para freidora",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=Tool1",
+        },
+        {
+          id: "T002",
+          name: "Cesta de freidora",
+          quantity: "2 unidades",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=Tool2",
+        },
+        {
+          id: "T003",
+          name: "Termómetro de aceite",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=Tool3",
+        },
+      ],
+      Food: [
+        {
+          id: "F001",
+          name: "Alitas de pollo",
+          quantity: "2 Bolsas",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=Food1",
+        },
+        {
+          id: "F002",
+          name: "Papas fritas",
+          quantity: "5 Bolsas",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=Food2",
+        },
+        {
+          id: "F003",
+          name: "Aros de cebolla",
+          quantity: "3 Bolsas",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=Food3",
+        },
+      ],
+    },
+    Assembly: {
+      Tools: [
+        {
+          id: "AT001",
+          name: "Pinzas de montaje",
+          quantity: "2 unidades",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=ATool1",
+        },
+        {
+          id: "AT002",
+          name: "Guantes de manipulación",
+          quantity: "1 par",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=ATool2",
+        },
+        {
+          id: "AT003",
+          name: "Bandejas de ensamblaje",
+          quantity: "5 unidades",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=ATool3",
+        },
+      ],
+      Food: [
+        {
+          id: "AF001",
+          name: "Pan de hamburguesa",
+          quantity: "100 unidades",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=AFood1",
+        },
+        {
+          id: "AF002",
+          name: "Carne de res",
+          quantity: "50 unidades",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=AFood2",
+        },
+        {
+          id: "AF003",
+          name: "Lechuga picada",
+          quantity: "2 kg",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=AFood3",
+        },
+      ],
+    },
+    Grill: {
+      Tools: [
+        {
+          id: "GT001",
+          name: "Espátula de parrilla",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=GTool1",
+        },
+        {
+          id: "GT002",
+          name: "Cepillo de limpieza",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=GTool2",
+        },
+        {
+          id: "GT003",
+          name: "Termómetro de carne",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=GTool3",
+        },
+      ],
+      Food: [
+        {
+          id: "GF001",
+          name: "Costillas de cerdo",
+          quantity: "5 kg",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=GFood1",
+        },
+        {
+          id: "GF002",
+          name: "Salchichas",
+          quantity: "20 unidades",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=GFood2",
+        },
+        {
+          id: "GF003",
+          name: "Maíz en mazorca",
+          quantity: "12 unidades",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=GFood3",
+        },
+      ],
+    },
+    Salad: {
+      Tools: [
+        {
+          id: "ST001",
+          name: "Tazón grande para ensalada",
+          quantity: "2 unidades",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=STool1",
+        },
+        {
+          id: "ST002",
+          name: "Pinzas para ensalada",
+          quantity: "3 unidades",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=STool2",
+        },
+        {
+          id: "ST003",
+          name: "Centrifugadora de lechuga",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=STool3",
+        },
+      ],
+      Food: [
+        {
+          id: "SF001",
+          name: "Lechuga romana",
+          quantity: "3 cabezas",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=SFood1",
+        },
+        {
+          id: "SF002",
+          name: "Tomates cherry",
+          quantity: "1 kg",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=SFood2",
+        },
+        {
+          id: "SF003",
+          name: "Pepino",
+          quantity: "4 unidades",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=SFood3",
+        },
+      ],
+    },
+    Sandwich: {
+      Tools: [
+        {
+          id: "SWT001",
+          name: "Cuchillo de pan",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=SWTool1",
+        },
+        {
+          id: "SWT002",
+          name: "Tabla de cortar",
+          quantity: "2 unidades",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=SWTool2",
+        },
+        {
+          id: "SWT003",
+          name: "Esparcidor de condimentos",
+          quantity: "3 unidades",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=SWTool3",
+        },
+      ],
+      Food: [
+        {
+          id: "SWF001",
+          name: "Pan de sándwich",
+          quantity: "50 rebanadas",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=SWFood1",
+        },
+        {
+          id: "SWF002",
+          name: "Jamón",
+          quantity: "2 kg",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=SWFood2",
+        },
+        {
+          id: "SWF003",
+          name: "Queso suizo",
+          quantity: "1 kg",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=SWFood3",
+        },
+      ],
+    },
+    Pizza: {
+      Tools: [
+        {
+          id: "PT001",
+          name: "Pala de pizza",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/aabbcc/ffffff?text=PTool1",
+        },
+        {
+          id: "PT002",
+          name: "Cortador de pizza",
+          quantity: "2 unidades",
+          image: "https://placehold.co/50x50/ccbbaa/ffffff?text=PTool2",
+        },
+        {
+          id: "PT003",
+          name: "Piedra para pizza",
+          quantity: "1 unidad",
+          image: "https://placehold.co/50x50/bbaacc/ffffff?text=PTool3",
+        },
+      ],
+      Food: [
+        {
+          id: "PF001",
+          name: "Masa de pizza",
+          quantity: "10 unidades",
+          image: "https://placehold.co/50x50/aaccbb/ffffff?text=PFood1",
+        },
+        {
+          id: "PF002",
+          name: "Salsa de tomate",
+          quantity: "3 latas",
+          image: "https://placehold.co/50x50/ccabba/ffffff?text=PFood2",
+        },
+        {
+          id: "PF003",
+          name: "Queso mozzarella",
+          quantity: "2 kg",
+          image: "https://placehold.co/50x50/abccba/ffffff?text=PFood3",
+        },
+      ],
+    },
+  },
+};
