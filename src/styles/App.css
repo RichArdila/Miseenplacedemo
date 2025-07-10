@@ -40,11 +40,8 @@ body {
 }
 
 .home-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
-  padding-top: 50px;
+  padding-top: 20px;
 }
 
 /* Responsive adjustments */

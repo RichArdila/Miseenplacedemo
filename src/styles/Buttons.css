@@ -1,13 +1,14 @@
 .mise-en-place-button {
-  background-color: #4caf50; /* Verde */
+  background-color: #5cb85c; /* Verde ligeramente diferente */
   color: white;
   padding: 40px 60px;
   border: none;
-  border-radius: 12px;
-  font-size: 1.8em;
+  border-radius: 10px;
+  font-size: 1.4em;
   cursor: pointer;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.2s ease;
+  text-align: center;
 }
 
 .mise-en-place-button:hover {
@@ -27,7 +28,7 @@
 .subcategory-button {
   background-color: #5cb85c; /* Verde ligeramente diferente */
   color: white;
-  padding: 30px 20px;
+  padding: 40px 60px;
   border: none;
   border-radius: 10px;
   font-size: 1.2em;
