@@ -1,22 +1,17 @@
 body {
   font-family: "Inter", sans-serif;
-  margin: 0;
   background-color: #f0f2f5;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
   min-height: 100vh;
 }
 
 .app-container {
   display: flex;
   width: 100%;
-  max-width: 1200px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   overflow: hidden;
-  min-height: 80vh;
+  height: 100vh;
 }
 
 .main-content {
