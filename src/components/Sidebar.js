@@ -1,51 +1,32 @@
+// ... código existente ...
 import React from "react";
-import "../styles/Sidebar.css"; // Importa los estilos de la barra lateral
-import { appData } from "../data/appData"; // Importa los datos de la aplicación
+import "../styles/Sidebar.css";
+import { Link, useNavigate } from "react-router-dom";
 
-const Sidebar = ({ path, onNavigate }) => {
+const Sidebar = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
-        <span
-          className="back-arrow"
-          onClick={() =>
-            path.length > 1 && onNavigate(path[path.length - 2] || "Home")
-          }
-        >
+        <span className="back-arrow" onClick={() => navigate(-1)}>
           &lt; ChefReady Pro
         </span>
       </div>
       <ul className="sidebar-menu">
-        <li
-          className={`menu-item ${
-            path[0] === "Home" && path.length === 1 ? "active" : ""
-          }`}
-          onClick={() => onNavigate("Home")}
-        >
-          <span className="icon">📍</span> Dashboard
+        <li className="menu-item">
+          <Link to="/" className="icon">
+            📍 Dashboard
+          </Link>
         </li>
         <li className="menu-item-parent">
-          <span onClick={() => onNavigate("Mise en Place")}>Mise en Place</span>
-          {path.includes("Mise en Place") && (
-            <ul className="submenu">
-              {Object.keys(appData["Mise en Place"]).map((category) => (
-                <li
-                  key={category}
-                  className={`submenu-item ${
-                    path.includes(category) ? "active" : ""
-                  }`}
-                  onClick={() => onNavigate(category)}
-                >
-                  {category}
-                </li>
-              ))}
-            </ul>
-          )}
+          <span onClick={() => navigate("/categorias")}>Mise en Place</span>
+          {/* Si quieres mostrar subcategorías, puedes agregar rutas dinámicas aquí */}
         </li>
         <li className="menu-item verified-list-button-container">
           <button
             className="verified-list-button"
-            onClick={() => onNavigate("Verified List")}
+            onClick={() => navigate("/verificados")}
           >
             Lista Verificada
           </button>

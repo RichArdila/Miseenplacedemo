@@ -1,12 +1,15 @@
 import React from "react";
-import "../styles/Buttons.css"; // Importa los estilos de botones
+import "../styles/Buttons.css";
+import { useNavigate } from "react-router-dom";
 
-const MiseEnPlaceHome = ({ onNavigate }) => {
+const MiseEnPlaceHome = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="home-container">
       <button
         className="mise-en-place-button"
-        onClick={() => onNavigate("Mise en Place")}
+        onClick={() => navigate("/categorias")}
       >
         Mise en Place
       </button>

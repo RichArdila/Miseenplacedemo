@@ -1,14 +1,26 @@
 import React from "react";
-import "../styles/App.css"; // Contiene los estilos para el breadcrumb
+import "../styles/App.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Breadcrumb = ({ path, onNavigate }) => {
+const Breadcrumb = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Divide la ruta en segmentos, ignorando el primer elemento vacío
+  const pathnames = location.pathname.split("/").filter((x) => x);
+
   return (
     <div className="breadcrumb">
-      {path.map((segment, index) => (
-        <span key={index} onClick={() => onNavigate(segment)}>
-          {segment} {index < path.length - 1 && "> "}
-        </span>
-      ))}
+      <span onClick={() => navigate("/")}>Inicio</span>
+      {pathnames.map((segment, index) => {
+        const to = "/" + pathnames.slice(0, index + 1).join("/");
+        return (
+          <span key={to} onClick={() => navigate(to)}>
+            {" > "}
+            {segment}
+          </span>
+        );
+      })}
     </div>
   );
 };

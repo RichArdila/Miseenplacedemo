@@ -1,14 +1,24 @@
 import React from "react";
-import "../styles/Buttons.css"; // Importa los estilos de botones
+import "../styles/Buttons.css";
+import { useParams, useNavigate } from "react-router-dom";
+import { appData } from "../data/appData";
 
-const SubCategoryGrid = ({ subCategories, onNavigate }) => {
+const SubCategoryGrid = () => {
+  const { categoria } = useParams();
+  const navigate = useNavigate();
+
+  // Obtén las subcategorías desde los datos
+  const subCategories = Object.keys(
+    appData["Mise en Place"]?.[categoria] || {}
+  );
+
   return (
     <div className="subcategory-grid">
       {subCategories.map((subCategory) => (
         <button
           key={subCategory}
           className="subcategory-button"
-          onClick={() => onNavigate(subCategory)}
+          onClick={() => navigate(`/categorias/${categoria}/${subCategory}`)}
         >
           {subCategory}
         </button>
