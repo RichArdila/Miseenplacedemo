@@ -1,8 +1,32 @@
-import React from "react";
-import "../styles/Lists.css"; // Importa los estilos de listas
-import "../styles/FilterButtons.css"; // Importa los estilos de botones de filtro
+import React, { useState } from "react";
+import "../styles/Lists.css";
+import "../styles/FilterButtons.css";
+import { useParams } from "react-router-dom";
+import { appData } from "../data/appData";
 
-const ItemsList = ({ items, onVerifyItem }) => {
+const ItemsList = () => {
+  const { categoria, subcategoria } = useParams();
+  const initialItems =
+    appData["Mise en Place"]?.[categoria]?.[subcategoria] || [];
+  const [items, setItems] = useState(initialItems);
+
+  const handleVerifyItem = (item) => {
+    // Guardar en localStorage
+    const stored = localStorage.getItem("verifiedItems");
+    const verifiedItems = stored ? JSON.parse(stored) : [];
+    if (!verifiedItems.some((i) => i.id === item.id)) {
+      const verifiedItem = {
+        ...item,
+        verifiedBy: "Usuario Demo",
+        verifiedAt: new Date().toLocaleString(),
+      };
+      verifiedItems.push(verifiedItem);
+      localStorage.setItem("verifiedItems", JSON.stringify(verifiedItems));
+    }
+    // Eliminar el ítem de la lista actual
+    setItems((prev) => prev.filter((i) => i.id !== item.id));
+  };
+
   return (
     <div className="items-list-container">
       <div className="filter-buttons">
@@ -25,7 +49,7 @@ const ItemsList = ({ items, onVerifyItem }) => {
               <img src={item.image} alt={item.name} className="item-image" />
               <button
                 className="verify-button"
-                onClick={() => onVerifyItem(item)}
+                onClick={() => handleVerifyItem(item)}
               >
                 Verificar
               </button>

@@ -1,14 +1,21 @@
 import React from "react";
-import "../styles/Buttons.css"; // Importa los estilos de botones
+import "../styles/Buttons.css";
+import { useNavigate } from "react-router-dom";
+import { appData } from "../data/appData"; // Asegúrate de importar tus datos
 
-const CategoryGrid = ({ categories, onNavigate }) => {
+const CategoryGrid = () => {
+  const navigate = useNavigate();
+
+  // Obtén las categorías desde los datos
+  const categories = Object.keys(appData["Mise en Place"]);
+
   return (
     <div className="category-grid">
       {categories.map((category) => (
         <button
           key={category}
           className="category-button"
-          onClick={() => onNavigate(category)}
+          onClick={() => navigate(`/categorias/${category}`)}
         >
           {category}
         </button>

@@ -1,8 +1,19 @@
-import React from "react";
-import "../styles/Lists.css"; // Importa los estilos de listas
-import "../styles/FilterButtons.css"; // Importa los estilos de botones de filtro
+// ... código existente ...
+import React, { useEffect, useState } from "react";
+import "../styles/Lists.css";
+import "../styles/FilterButtons.css";
 
-const VerifiedList = ({ items }) => {
+const VerifiedList = () => {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    // Obtener los items verificados desde localStorage
+    const stored = localStorage.getItem("verifiedItems");
+    if (stored) {
+      setItems(JSON.parse(stored));
+    }
+  }, []);
+
   return (
     <div className="verified-list-container">
       <div className="filter-buttons">
