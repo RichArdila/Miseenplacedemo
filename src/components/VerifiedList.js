@@ -1,4 +1,3 @@
-// ... código existente ...
 import React, { useEffect, useState } from "react";
 import "../styles/Lists.css";
 import "../styles/FilterButtons.css";
@@ -17,12 +16,12 @@ const VerifiedList = () => {
   return (
     <div className="verified-list-container">
       <div className="filter-buttons">
-        <button className="filter-button active">Todo</button>
-        <button className="filter-button">Refrigerador 1</button>
-        <button className="filter-button">Refrigerador 2</button>
-        <button className="filter-button">Refrigerador 3</button>
-        <button className="filter-button">Mesa 1</button>
-        <button className="filter-button">Mesa 2</button>
+        <button className="filter-button active">All</button>
+        <button className="filter-button">Refrigerator 1</button>
+        <button className="filter-button">Refrigerator 2</button>
+        <button className="filter-button">Refrigerator 3</button>
+        <button className="filter-button">Table 1</button>
+        <button className="filter-button">Table 2</button>
       </div>
       <div className="verified-items-list">
         {items.length === 0 ? (
