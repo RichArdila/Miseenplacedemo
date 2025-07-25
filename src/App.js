@@ -4,7 +4,9 @@ import CategoryGrid from "./components/CategoryGrid";
 import SubCategoryGrid from "./components/SubCategoryGrid";
 import ItemsList from "./components/ItemsList";
 import VerifiedList from "./components/VerifiedList";
+import Dashboard from "./components/Dashboard";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Breadcrumb from "./components/Breadcrumb";
 
 function App() {
   return (
@@ -12,7 +14,9 @@ function App() {
       <div className="app-container">
         <Sidebar />
         <div className="main-content">
+          <Breadcrumb />
           <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/" element={<MiseEnPlaceHome />} />
             <Route path="/categorias" element={<CategoryGrid />} />
             <Route path="/verificados" element={<VerifiedList />} />

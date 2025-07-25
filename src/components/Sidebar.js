@@ -6,6 +6,11 @@ import { Link, useNavigate } from "react-router-dom";
 const Sidebar = () => {
   const navigate = useNavigate();
 
+  const handleClearVerified = () => {
+    localStorage.removeItem("verifiedItems");
+    window.location.reload(); // Recarga la página para actualizar la UI
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -15,7 +20,7 @@ const Sidebar = () => {
       </div>
       <ul className="sidebar-menu">
         <li className="menu-item">
-          <Link to="/" className="icon">
+          <Link to="Dashboard" className="icon">
             📍 Dashboard
           </Link>
         </li>
@@ -29,6 +34,14 @@ const Sidebar = () => {
             onClick={() => navigate("/verificados")}
           >
             Lista Verificada
+          </button>
+        </li>
+        <li className="menu-item">
+          <button
+            className="verified-list-button"
+            onClick={handleClearVerified}
+          >
+            Clear verified list
           </button>
         </li>
       </ul>
