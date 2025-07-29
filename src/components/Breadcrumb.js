@@ -11,7 +11,9 @@ const Breadcrumb = () => {
 
   return (
     <div className="breadcrumb">
-      <span onClick={() => navigate("/")}>Inicio</span>
+      <span onClick={() => navigate("/")}>
+        <span className="barra-verde"></span>Inicio
+      </span>
       {pathnames.map((segment, index) => {
         const to = "/" + pathnames.slice(0, index + 1).join("/");
         return (

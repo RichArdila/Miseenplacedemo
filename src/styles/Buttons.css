@@ -1,5 +1,5 @@
 .mise-en-place-button {
-  background-color: #5cb85c; /* Verde ligeramente diferente */
+  background-color: var(--verde-1); /* Verde ligeramente diferente */
   color: white;
   padding: 40px 60px;
   border: none;
