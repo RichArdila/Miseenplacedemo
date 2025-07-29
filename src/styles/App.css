@@ -1,36 +1,75 @@
 body {
   font-family: "Inter", sans-serif;
   background-color: #f0f2f5;
-  min-height: 100vh;
+  font-weight: 500;
+  margin: 0;
+  padding: 8px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:root {
+  --verde-1: #2cb62f; /* Verde */
+  --text-gray: #555; /* Gris medio */
+  --text-light-gray: #6f767e; /* Gris claro */
+  --secondary-color: #f0f2f5; /* Gris claro */
+  --text-color: #333; /* Gris oscuro */
+  --border-color: #ddd; /* Gris claro para bordes */
 }
 
 .app-container {
   display: flex;
   width: 100%;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
   border-radius: 8px;
-  overflow: hidden;
   height: 100vh;
+  overflow: hidden;
 }
 
 .main-content {
-  flex-grow: 1;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.content {
+  background-color: #fff;
+  height: 94%;
+  border-radius: 6px;
   padding: 20px;
 }
 
 .breadcrumb {
-  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  margin-bottom: 8px;
   color: #888;
   font-size: 0.9em;
+  background-color: #fff;
+  height: 6%;
+  border-radius: 8px;
 }
 
 .breadcrumb span {
   cursor: pointer;
+  display: inline-flex;
 }
 
 .breadcrumb span:hover {
   color: #4caf50;
+}
+
+.barra-verde {
+  display: inline-block;
+  width: 7px;
+  height: 18px;
+  background-color: var(--verde-1);
+  margin-right: 6px;
+  border-radius: 2px;
 }
 
 .page-title {

@@ -2,6 +2,8 @@
 import React from "react";
 import "../styles/Sidebar.css";
 import { Link, useNavigate } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
+import { LuBookText } from "react-icons/lu";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -20,12 +22,14 @@ const Sidebar = () => {
       </div>
       <ul className="sidebar-menu">
         <li className="menu-item">
-          <Link to="Dashboard" className="icon">
-            📍 Dashboard
+          <Link to="Dashboard" className="dashboard-link">
+            <MdDashboard className="icon" /> Dashboard
           </Link>
         </li>
         <li className="menu-item-parent">
-          <span onClick={() => navigate("/categorias")}>Mise en Place</span>
+          <span onClick={() => navigate("/categorias")}>
+            <LuBookText className="icon" /> Mise en Place
+          </span>
           {/* Si quieres mostrar subcategorías, puedes agregar rutas dinámicas aquí */}
         </li>
         <li className="menu-item verified-list-button-container">

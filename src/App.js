@@ -15,21 +15,23 @@ function App() {
         <Sidebar />
         <div className="main-content">
           <Breadcrumb />
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/" element={<MiseEnPlaceHome />} />
-            <Route path="/categorias" element={<CategoryGrid />} />
-            <Route path="/verificados" element={<VerifiedList />} />
-            <Route
-              path="/categorias/:categoria"
-              element={<SubCategoryGrid />}
-            />
-            <Route
-              path="/categorias/:categoria/:subcategoria"
-              element={<ItemsList />}
-            />
-            {/* Agrega más rutas según lo necesites */}
-          </Routes>
+          <div className="content">
+            <Routes>
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/" element={<MiseEnPlaceHome />} />
+              <Route path="/categorias" element={<CategoryGrid />} />
+              <Route path="/verificados" element={<VerifiedList />} />
+              <Route
+                path="/categorias/:categoria"
+                element={<SubCategoryGrid />}
+              />
+              <Route
+                path="/categorias/:categoria/:subcategoria"
+                element={<ItemsList />}
+              />
+              {/* Agrega más rutas según lo necesites */}
+            </Routes>
+          </div>
         </div>
       </div>
 
