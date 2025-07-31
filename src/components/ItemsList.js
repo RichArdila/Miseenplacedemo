@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Lists.css";
 import "../styles/FilterButtons.css";
 import { useParams } from "react-router-dom";
@@ -6,9 +6,25 @@ import { appData } from "../data/appData";
 
 const ItemsList = () => {
   const { categoria, subcategoria } = useParams();
-  const initialItems =
-    appData["Mise en Place"]?.[categoria]?.[subcategoria] || [];
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    // Obtener todos los items de la subcategoría
+    const allItems =
+      appData["Mise en Place"]?.[categoria]?.[subcategoria] || [];
+
+    // Obtener los items verificados del localStorage
+    const stored = localStorage.getItem("verifiedItems");
+    const verifiedItems = stored ? JSON.parse(stored) : [];
+
+    // Filtrar solo los items no verificados
+    const unverifiedItems = allItems.filter(
+      (item) =>
+        !verifiedItems.some((verifiedItem) => verifiedItem.id === item.id)
+    );
+
+    setItems(unverifiedItems);
+  }, [categoria, subcategoria]);
 
   const handleVerifyItem = (item) => {
     // Guardar en localStorage
@@ -38,24 +54,28 @@ const ItemsList = () => {
         <button className="filter-button">Mesa 2</button>
       </div>
       <div className="items-list">
-        {items.map((item) => (
-          <div key={item.id} className="item-card">
-            <div className="item-info">
-              <span className="item-id">#{item.id}</span>
-              <span className="item-name">{item.name}</span>
+        {items.length === 0 ? (
+          <p>No hay elementos para verificar en esta subcategoría.</p>
+        ) : (
+          items.map((item) => (
+            <div key={item.id} className="item-card">
+              <div className="item-info">
+                <span className="item-id">#{item.id}</span>
+                <span className="item-name">{item.name}</span>
+              </div>
+              <div className="item-details">
+                <span className="item-quantity">{item.quantity}</span>
+                <img src={item.image} alt={item.name} className="item-image" />
+                <button
+                  className="verify-button"
+                  onClick={() => handleVerifyItem(item)}
+                >
+                  Verificar
+                </button>
+              </div>
             </div>
-            <div className="item-details">
-              <span className="item-quantity">{item.quantity}</span>
-              <img src={item.image} alt={item.name} className="item-image" />
-              <button
-                className="verify-button"
-                onClick={() => handleVerifyItem(item)}
-              >
-                Verificar
-              </button>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
