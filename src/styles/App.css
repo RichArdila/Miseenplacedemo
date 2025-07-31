@@ -33,6 +33,7 @@ a {
 .main-content {
   width: 100%;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .content {
@@ -40,6 +41,8 @@ a {
   height: 94%;
   border-radius: 6px;
   padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .breadcrumb {
