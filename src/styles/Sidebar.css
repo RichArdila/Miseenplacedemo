@@ -97,13 +97,13 @@
 }
 
 .verified-list-button-container {
-  margin-top: auto; /* Empuja el botón hacia abajo */
+  margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid #eee;
 }
 
 .verified-list-button {
-  background-color: #ff9800; /* Color naranja */
+  background-color: #ff9800;
   color: white;
   padding: 10px 15px;
   border: none;

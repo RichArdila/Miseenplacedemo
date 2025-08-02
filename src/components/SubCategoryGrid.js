@@ -4,13 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { appData } from "../data/appData";
 
 const SubCategoryGrid = () => {
-  const { categoria } = useParams();
+  const { category } = useParams();
   const navigate = useNavigate();
 
-  // Obtén las subcategorías desde los datos
-  const subCategories = Object.keys(
-    appData["Mise en Place"]?.[categoria] || {}
-  );
+  const subCategories = Object.keys(appData["Mise en Place"]?.[category] || {});
 
   return (
     <div className="subcategory-grid">
@@ -18,7 +15,7 @@ const SubCategoryGrid = () => {
         <button
           key={subCategory}
           className="subcategory-button"
-          onClick={() => navigate(`/categorias/${categoria}/${subCategory}`)}
+          onClick={() => navigate(`/Categories/${category}/${subCategory}`)}
         >
           {subCategory}
         </button>

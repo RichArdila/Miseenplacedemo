@@ -5,29 +5,28 @@ import { useParams } from "react-router-dom";
 import { appData } from "../data/appData";
 
 const ItemsList = () => {
-  const { categoria, subcategoria } = useParams();
+  const { category, subcategory } = useParams();
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    // Obtener todos los items de la subcategoría
-    const allItems =
-      appData["Mise en Place"]?.[categoria]?.[subcategoria] || [];
+    // get all the items from the subcategory
+    const allItems = appData["Mise en Place"]?.[category]?.[subcategory] || [];
 
-    // Obtener los items verificados del localStorage
+    // get the verified items from the local storage
     const stored = localStorage.getItem("verifiedItems");
     const verifiedItems = stored ? JSON.parse(stored) : [];
 
-    // Filtrar solo los items no verificados
+    //filter the items that are not verified
     const unverifiedItems = allItems.filter(
       (item) =>
         !verifiedItems.some((verifiedItem) => verifiedItem.id === item.id)
     );
 
     setItems(unverifiedItems);
-  }, [categoria, subcategoria]);
+  }, [category, subcategory]);
 
   const handleVerifyItem = (item) => {
-    // Guardar en localStorage
+    // save the item in the local storage
     const stored = localStorage.getItem("verifiedItems");
     const verifiedItems = stored ? JSON.parse(stored) : [];
     if (!verifiedItems.some((i) => i.id === item.id)) {
@@ -39,23 +38,23 @@ const ItemsList = () => {
       verifiedItems.push(verifiedItem);
       localStorage.setItem("verifiedItems", JSON.stringify(verifiedItems));
     }
-    // Eliminar el ítem de la lista actual
+    // remove the item from the list
     setItems((prev) => prev.filter((i) => i.id !== item.id));
   };
 
   return (
     <div className="items-list-container">
       <div className="filter-buttons">
-        <button className="filter-button active">Todo</button>
-        <button className="filter-button">Refrigerador 1</button>
-        <button className="filter-button">Refrigerador 2</button>
-        <button className="filter-button">Refrigerador 3</button>
-        <button className="filter-button">Mesa 1</button>
-        <button className="filter-button">Mesa 2</button>
+        <button className="filter-button active">All</button>
+        <button className="filter-button">Refrigerator 1</button>
+        <button className="filter-button">Refrigerator 2</button>
+        <button className="filter-button">Refrigerator 3</button>
+        <button className="filter-button">Table 1</button>
+        <button className="filter-button">Table 2</button>
       </div>
       <div className="items-list">
         {items.length === 0 ? (
-          <p>No hay elementos para verificar en esta subcategoría.</p>
+          <p>No items to verify in this subcategory.</p>
         ) : (
           items.map((item) => (
             <div key={item.id} className="item-card">
@@ -70,7 +69,7 @@ const ItemsList = () => {
                   className="verify-button"
                   onClick={() => handleVerifyItem(item)}
                 >
-                  Verificar
+                  Validate
                 </button>
               </div>
             </div>

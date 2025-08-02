@@ -17,25 +17,22 @@ function App() {
           <Breadcrumb />
           <div className="content">
             <Routes>
-              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/Dashboard" element={<Dashboard />} />
               <Route path="/" element={<MiseEnPlaceHome />} />
-              <Route path="/categorias" element={<CategoryGrid />} />
-              <Route path="/verificados" element={<VerifiedList />} />
+              <Route path="/Categories" element={<CategoryGrid />} />
+              <Route path="/Verified" element={<VerifiedList />} />
               <Route
-                path="/categorias/:categoria"
+                path="/Categories/:category"
                 element={<SubCategoryGrid />}
               />
               <Route
-                path="/categorias/:categoria/:subcategoria"
+                path="/Categories/:category/:subcategory"
                 element={<ItemsList />}
               />
-              {/* Agrega más rutas según lo necesites */}
             </Routes>
           </div>
         </div>
       </div>
-
-      {/* Puedes mantener tu Sidebar o Navbar aquí si es común a todas las páginas */}
     </Router>
   );
 }
