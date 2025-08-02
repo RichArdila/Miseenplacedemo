@@ -9,7 +9,7 @@ const MiseEnPlaceHome = () => {
     <div className="home-container">
       <button
         className="mise-en-place-button"
-        onClick={() => navigate("/categorias")}
+        onClick={() => navigate("/Categories")}
       >
         Mise en Place
       </button>

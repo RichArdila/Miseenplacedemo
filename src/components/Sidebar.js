@@ -1,4 +1,3 @@
-// ... código existente ...
 import React from "react";
 import "../styles/Sidebar.css";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,7 +9,7 @@ const Sidebar = () => {
 
   const handleClearVerified = () => {
     localStorage.removeItem("verifiedItems");
-    window.location.reload(); // Recarga la página para actualizar la UI
+    window.location.reload();
   };
 
   return (
@@ -27,17 +26,16 @@ const Sidebar = () => {
           </Link>
         </li>
         <li className="menu-item-parent">
-          <span onClick={() => navigate("/categorias")}>
+          <span onClick={() => navigate("/Categories")}>
             <LuBookText className="icon" /> Mise en Place
           </span>
-          {/* Si quieres mostrar subcategorías, puedes agregar rutas dinámicas aquí */}
         </li>
         <li className="menu-item verified-list-button-container">
           <button
             className="verified-list-button"
-            onClick={() => navigate("/verificados")}
+            onClick={() => navigate("/Verified")}
           >
-            Lista Verificada
+            Verified List
           </button>
         </li>
         <li className="menu-item">
