@@ -57,7 +57,12 @@ const ItemsList = () => {
           <p>No items to verify in this subcategory.</p>
         ) : (
           items.map((item) => (
-            <div key={item.id} className="item-card">
+            <div
+              key={item.id}
+              className="item-card"
+              onClick={() => handleVerifyItem(item)}
+              style={{ cursor: "pointer" }}
+            >
               <div className="item-info">
                 <span className="item-id">#{item.id}</span>
                 <span className="item-name">{item.name}</span>
@@ -65,12 +70,12 @@ const ItemsList = () => {
               <div className="item-details">
                 <span className="item-quantity">{item.quantity}</span>
                 <img src={item.image} alt={item.name} className="item-image" />
-                <button
+                {/* <button
                   className="verify-button"
                   onClick={() => handleVerifyItem(item)}
                 >
                   Validate
-                </button>
+                </button> */}
               </div>
             </div>
           ))
