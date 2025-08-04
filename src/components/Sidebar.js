@@ -30,7 +30,7 @@ const Sidebar = () => {
             <LuBookText className="icon" /> Mise en Place
           </span>
         </li>
-        <li className="menu-item verified-list-button-container">
+        <li className=" verified-list-button-container">
           <button
             className="verified-list-button"
             onClick={() => navigate("/Verified")}
@@ -38,7 +38,7 @@ const Sidebar = () => {
             Verified List
           </button>
         </li>
-        <li className="menu-item">
+        <li className="">
           <button
             className="verified-list-button"
             onClick={handleClearVerified}
