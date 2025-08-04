@@ -18,6 +18,7 @@ a {
   --secondary-color: #f0f2f5; /* Gris claro */
   --text-color: #333; /* Gris oscuro */
   --border-color: #ddd; /* Gris claro para bordes */
+  --naranja: #F87532
 }
 
 .app-container {

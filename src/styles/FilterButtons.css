@@ -6,19 +6,19 @@
 }
 
 .filter-button {
-  background-color: #e0e0e0;
+  background-color:rgb(255, 255, 255);
   color: #555;
+  border: solid 1px #DEDBDB;
   padding: 8px 15px;
-  border: none;
-  border-radius: 20px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 0.9em;
+  font-size: 0.8em;
   transition: background-color 0.3s, color 0.3s;
 }
 
 .filter-button.active,
 .filter-button:hover {
-  background-color: #4caf50;
+  background-color: var(--naranja);
   color: white;
 }
 
