@@ -13,6 +13,19 @@ const VerifiedList = () => {
     }
   }, []);
 
+  const handleRestoreItem = (itemToRestore) => {
+    // Remove the item from verified items in localStorage
+    const stored = localStorage.getItem("verifiedItems");
+    const verifiedItems = stored ? JSON.parse(stored) : [];
+    const updatedVerifiedItems = verifiedItems.filter(
+      (item) => item.id !== itemToRestore.id
+    );
+    localStorage.setItem("verifiedItems", JSON.stringify(updatedVerifiedItems));
+
+    // Update the local state
+    setItems(updatedVerifiedItems);
+  };
+
   return (
     <div className="verified-list-container">
       <div className="filter-buttons">
@@ -35,11 +48,17 @@ const VerifiedList = () => {
                   Verified by: {item.verifiedBy} at {item.verifiedAt}
                 </span>
               </div>
-              <img
-                src={item.image}
-                alt={item.name}
-                className="verified-item-image"
-              />
+              <div className="item-details">
+                <span className="item-quantity">{item.quantity}</span>
+                <img src={item.image} alt={item.name} className="item-image" />
+              </div>
+
+              <button
+                className="restore-button"
+                onClick={() => handleRestoreItem(item)}
+              >
+                Restore
+              </button>
             </div>
           ))
         )}

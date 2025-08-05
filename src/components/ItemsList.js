@@ -9,20 +9,40 @@ const ItemsList = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    // get all the items from the subcategory
-    const allItems = appData["Mise en Place"]?.[category]?.[subcategory] || [];
+    const updateItems = () => {
+      // get all the items from the subcategory
+      const allItems =
+        appData["Mise en Place"]?.[category]?.[subcategory] || [];
 
-    // get the verified items from the local storage
-    const stored = localStorage.getItem("verifiedItems");
-    const verifiedItems = stored ? JSON.parse(stored) : [];
+      // get the verified items from the local storage
+      const stored = localStorage.getItem("verifiedItems");
+      const verifiedItems = stored ? JSON.parse(stored) : [];
 
-    //filter the items that are not verified
-    const unverifiedItems = allItems.filter(
-      (item) =>
-        !verifiedItems.some((verifiedItem) => verifiedItem.id === item.id)
-    );
+      //filter the items that are not verified
+      const unverifiedItems = allItems.filter(
+        (item) =>
+          !verifiedItems.some((verifiedItem) => verifiedItem.id === item.id)
+      );
 
-    setItems(unverifiedItems);
+      setItems(unverifiedItems);
+    };
+
+    // Initial load
+    updateItems();
+
+    // Listen for storage changes
+    const handleStorageChange = (e) => {
+      if (e.key === "verifiedItems") {
+        updateItems();
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, [category, subcategory]);
 
   const handleVerifyItem = (item) => {
@@ -70,12 +90,6 @@ const ItemsList = () => {
               <div className="item-details">
                 <span className="item-quantity">{item.quantity}</span>
                 <img src={item.image} alt={item.name} className="item-image" />
-                {/* <button
-                  className="verify-button"
-                  onClick={() => handleVerifyItem(item)}
-                >
-                  Validate
-                </button> */}
               </div>
             </div>
           ))
