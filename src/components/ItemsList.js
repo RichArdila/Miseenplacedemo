@@ -7,18 +7,16 @@ import { appData } from "../data/appData";
 const ItemsList = () => {
   const { category, subcategory } = useParams();
   const [items, setItems] = useState([]);
+  const [filter, setFilter] = useState("All");
 
   useEffect(() => {
     const updateItems = () => {
-      // get all the items from the subcategory
       const allItems =
         appData["Mise en Place"]?.[category]?.[subcategory] || [];
 
-      // get the verified items from the local storage
       const stored = localStorage.getItem("verifiedItems");
       const verifiedItems = stored ? JSON.parse(stored) : [];
 
-      //filter the items that are not verified
       const unverifiedItems = allItems.filter(
         (item) =>
           !verifiedItems.some((verifiedItem) => verifiedItem.id === item.id)
@@ -27,10 +25,8 @@ const ItemsList = () => {
       setItems(unverifiedItems);
     };
 
-    // Initial load
     updateItems();
 
-    // Listen for storage changes
     const handleStorageChange = (e) => {
       if (e.key === "verifiedItems") {
         updateItems();
@@ -38,17 +34,15 @@ const ItemsList = () => {
     };
 
     window.addEventListener("storage", handleStorageChange);
-
-    // Cleanup
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
   }, [category, subcategory]);
 
   const handleVerifyItem = (item) => {
-    // save the item in the local storage
     const stored = localStorage.getItem("verifiedItems");
     const verifiedItems = stored ? JSON.parse(stored) : [];
+
     if (!verifiedItems.some((i) => i.id === item.id)) {
       const verifiedItem = {
         ...item,
@@ -58,25 +52,52 @@ const ItemsList = () => {
       verifiedItems.push(verifiedItem);
       localStorage.setItem("verifiedItems", JSON.stringify(verifiedItems));
     }
-    // remove the item from the list
+
     setItems((prev) => prev.filter((i) => i.id !== item.id));
   };
 
+  const hasLocations = items.some((item) => item.location);
+  const uniqueLocations = [
+    ...new Set(
+      items.filter((item) => item.location).map((item) => item.location)
+    ),
+  ];
+
+  const filteredItems =
+    filter === "All" ? items : items.filter((item) => item.location === filter);
+
   return (
     <div className="items-list-container">
-      <div className="filter-buttons">
-        <button className="filter-button active">All</button>
-        <button className="filter-button">Refrigerator 1</button>
-        <button className="filter-button">Refrigerator 2</button>
-        <button className="filter-button">Refrigerator 3</button>
-        <button className="filter-button">Table 1</button>
-        <button className="filter-button">Table 2</button>
-      </div>
+      {hasLocations && (
+        <div className="filter-buttons">
+          <button
+            className={`filter-button ${filter === "All" ? "active" : ""}`}
+            onClick={() => setFilter("All")}
+          >
+            All
+          </button>
+          {uniqueLocations.map((loc) => (
+            <button
+              key={loc}
+              className={`filter-button ${filter === loc ? "active" : ""}`}
+              onClick={() => setFilter(loc)}
+            >
+              {loc}
+            </button>
+          ))}
+        </div>
+      )}
+      {!hasLocations && (
+        <div className="filter-buttons">
+          <button className="filter-button active">All</button>
+        </div>
+      )}
+
       <div className="items-list">
-        {items.length === 0 ? (
+        {filteredItems.length === 0 ? (
           <p>No items to verify in this subcategory.</p>
         ) : (
-          items.map((item) => (
+          filteredItems.map((item) => (
             <div
               key={item.id}
               className="item-card"
