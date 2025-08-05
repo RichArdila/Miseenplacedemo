@@ -30,6 +30,7 @@ export const appData = {
           name: "Chicken wings (bags)",
           quantity: "2 Bags",
           image: "https://placehold.co/50x50/aaccbb/ffffff?text=Food1",
+          location: "Refrigerador 1",
           verified: false,
         },
         {
@@ -37,6 +38,7 @@ export const appData = {
           name: "Sweet potato fries (bags)",
           quantity: "5 Bags",
           image: "https://placehold.co/50x50/ccabba/ffffff?text=Food2",
+          location: "Refrigerador 1",
           verified: false,
         },
         {
@@ -44,6 +46,7 @@ export const appData = {
           name: "Sweet potatoes (cubes)",
           quantity: "1 container",
           image: "https://placehold.co/50x50/abccba/ffffff?text=Food3",
+          location: "Refrigerador 2",
           verified: false,
         },
         {
@@ -51,6 +54,7 @@ export const appData = {
           name: "Corn dogs (or sausage bites)",
           quantity: "1 container",
           image: "https://placehold.co/50x50/abccba/ffffff?text=Food4",
+          location: "Refrigerador 1",
           verified: false,
         },
       ],
